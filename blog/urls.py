@@ -1,7 +1,10 @@
 from django.urls import path
-from blog.views import PostView
+from blog import views  # <-- Esta linha está faltando!
 
 
 urlpatterns = [
-    path('home/', PostView.as_view(), name='home'),
+    path("",views.PostView.as_view(), name='home'),
+    path("<slug:slug>/",views.PostDetail.as_view(),name="post_detail"),
 ]
+
+
